@@ -63,15 +63,12 @@ export async function widgetAction () {
 
 	// Uses the A.V.A.T.A.R server or client screenSaver
 	if (Config.screenSaver.exec) {
-		// Locates the folder on server or client where the A.V.A.T.A.R screensaver is
-		const posDir = Config.client ? "../..": "../../..";
-
 		// Returns the script
 		const script = process.platform === 'win32'
-		? path.join(__dirname, posDir, "lib", "screensaver", "win32", "screensaver.vbs").concat(" \"" + Config.screenSaver.exec + "\"")
-		: path.join(__dirname, posDir, "lib", "screensaver", process.platform, "screensaver.sh").concat(" \"" + Config.screenSaver.exec + "\"");
+		? path.join(__dirname, posDir, "../../..", "lib", "screensaver", "win32", "screensaver.vbs").concat(" \"" + Config.screenSaver.exec + "\"")
+		: path.join(__dirname, posDir, "../../..", "lib", "screensaver", process.platform, "screensaver.sh").concat(" \"" + Config.screenSaver.exec + "\"");
 	  
-		// execs screensaver
+		// exec screensaver
 		exec(script, err => {
 			if (err) error(Locale.get(["error.msg", err]));
 		})
