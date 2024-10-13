@@ -2,8 +2,7 @@
 
 Button widget to display a screenSaver (black screen by default) 
 
-This plugin is an add-on for the [A.V.A.T.A.R](https://avatar-home-automation.github.io/docs) framework.  
-You must have a working server and client to use it.
+This plugin is an add-on for the [A.V.A.T.A.R](https://avatar-home-automation.github.io/docs) framework.
 
  ## ★ Installation
 
