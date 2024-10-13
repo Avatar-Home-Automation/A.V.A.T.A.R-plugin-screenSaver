@@ -62,17 +62,17 @@ export async function getPeriphInfo () {
 export async function widgetAction () {
 
 	// Uses the A.V.A.T.A.R server or client screenSaver
-	if (Config.screenSaver.exec) {
-		// Returns the script
+	if ((process.platform === 'win32' && Config.screenSaver.exec) || process.platform !== 'win32') {
+		// Returns the script depending platform
 		const script = process.platform === 'win32'
-		? path.join(__dirname, posDir, "../../..", "lib", "screensaver", "win32", "screensaver.vbs").concat(" \"" + Config.screenSaver.exec + "\"")
-		: path.join(__dirname, posDir, "../../..", "lib", "screensaver", process.platform, "screensaver.sh").concat(" \"" + Config.screenSaver.exec + "\"");
+		? path.join(__dirname, "../../..", "lib", "screensaver", "win32", "screensaver.vbs").concat(" \"" + Config.screenSaver.exec + "\"")
+		: path.join(__dirname, "../../..", "lib", "screensaver", process.platform, "screensaver.sh").concat(" \"" + Config.screenSaver.exec + "\"");
 	  
 		// exec screensaver
 		exec(script, err => {
 			if (err) error(Locale.get(["error.msg", err]));
 		})
-	  }
+	}
 }
 
 
