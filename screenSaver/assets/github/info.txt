@@ -1,6 +1,0 @@
-
-This plugin displays a button widget in the interface. 
-When you click on it, it displays a screensaver (black screen by default). 
-
-It can be installed on the server or on clients.
-
